@@ -7,6 +7,7 @@ import settings from "../../config"
 import { mineshaftCheck, registerWhen, displayTitle } from "../../utils/helperUtil"
 let currentRoom;
 let gemstones = [];
+let scanning = false;
 
 const GEMSTONE_NAMES = ["BlockType{name=minecraft:stained_glass_pane}", "BlockType{name=minecraft:stained_glass}"]
 
@@ -17,6 +18,9 @@ let renderPos;
 const data = JSON.parse(FileLib.read("AzaAddons", "../../data/shaftWaypoints.json"))
 
 let Scan = () => {
+    if (scanning) return;
+    scanning = true;
+
     let range = settings().gemScannerRange;
     let newgemstones = [];
 
@@ -144,6 +148,8 @@ let Scan = () => {
             updatePos();
         } catch (error) {
 
+        } finally {
+            scanning = false;
         }
     }).start();
 };
@@ -424,4 +430,6 @@ const disableGL = () => {
 
 register("worldLoad", () => {
     currentRoom = undefined
+    gemstones = []
+    scanning = false
 })
