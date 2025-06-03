@@ -29,9 +29,9 @@ let Scan = () => {
             let X = Math.floor(Player.getX());
             let Y = Math.floor(Player.getY());
             let Z = Math.floor(Player.getZ());
-            for (x = -range; x <= range; x++) {
-                for (y = -range; y <= range; y++) {
-                    for (z = -range; z <= range; z++) {
+            for (let x = -range; x <= range; x++) {
+                for (let y = -range; y <= range; y++) {
+                    for (let z = -range; z <= range; z++) {
                         let block = World.getBlockAt(X + x, Y + y, Z + z);
                         if (GEMSTONE_NAMES.includes(block.type.toString())) {
                             let color;
