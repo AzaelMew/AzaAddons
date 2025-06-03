@@ -1,0 +1,13 @@
+{
+  "name": "AzaAddons",
+  "description": "A bunch of stuff lul\nSettings menu came",
+  "author": "Azael_Nya",
+  "entry": "index.js",
+  "version": "0.1.0",
+  "requires": [
+    "Amaterasu",
+	  "RenderLib",
+    "BloomCore",
+    "PogData"
+  ]
+}
